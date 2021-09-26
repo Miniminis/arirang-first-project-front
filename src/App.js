@@ -2,18 +2,13 @@ import './App.css';
 import {createGlobalStyle} from "styled-components";
 import TestTemplate from "./components/TestTemplate";
 import Home from "./pages/Home";
-import {Route} from "react-router-dom";
+import {Route, Switch} from "react-router-dom";
 import About from "./pages/About";
-import TestProvider from "./components/TestProvider";
-import Question from "./pages/Question";
+import QuestionList from "./pages/QuestionList";
 import React from "react";
 import Result from "./pages/Result";
+import {TestProvider} from "./components/TestContext";
 
-const GlobalStyle = createGlobalStyle`
-  body {
-    background: #f4ebe4;
-  }
-`;
 
 function App() {
   return (
@@ -21,12 +16,23 @@ function App() {
           <GlobalStyle/>
           <TestTemplate>
               <Route path="/" exact={true} component={Home} />
-              <Route path="/about" component={About} />
-              <Route path="/question" component={Question}/>
-              <Route path="/result" component={Result}/>
+              <Switch>
+                  <Route path="/question" component={QuestionList}/>
+                  <Route path="/about" component={About} />
+                  <Route path="/result" component={Result}/>
+              </Switch>
           </TestTemplate>
       </TestProvider>
   );
 }
 
 export default App;
+
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    height: 100vh;
+    text-align: center;
+    background: #f4ebe4;
+  }
+`;

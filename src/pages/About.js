@@ -3,7 +3,7 @@ import React from "react";
 function About() {
     return (
         <div>
-            here is about
+            this is docking project
         </div>
     );
 }

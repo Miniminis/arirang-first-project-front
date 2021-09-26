@@ -1,52 +1,49 @@
 import React from "react";
 import styled from "styled-components";
 import {Link} from "react-router-dom";
-
-const HomeBlock = styled.div`
-  background: #b98561;
-  text-align: center;
-`;
-
-const ButtonStart = styled.button`
-  /* 공통 스타일 */
-  display: block;
-  outline: none;
-  border: none;
-  border-radius: 18px;
-  color: white;
-  background: #e38238;
-  font-weight: bold;
-  cursor: pointer;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  margin: 0 auto;
-  
-  /* 크기 */
-  height: 2rem;
-  font-size: 1rem;
-`;
-
-const ButtonTextAbout = styled.text`
-  display: block;
-  outline: none;
-  border: none;
-  
-  margin: 0 auto;
-  cursor: pointer;
-  
-  font-size: 18px;
-`;
+import MainImg from '../assets/images/main.png';
+import BtnStart from '../assets/images/btn_start.png';
+import BtnAbout from '../assets/images/btn_about.png';
 
 function Home() {
     return (
         <HomeBlock>
-            <h1>서울 빵 맛집잘알 인증 테스트</h1>
-            <img src="https://imagescdn.gettyimagesbank.com/500/201707/a10908419.jpg"
-                width="100%"/>
-            <ButtonStart><Link to="/question">맛집잘알 테스트 시작하기</Link></ButtonStart>
-            <ButtonTextAbout>제작자 보러가기</ButtonTextAbout>
+            <Link to="/question"><StartButton/></Link>
+            <Link to="/about"><AboutButton/></Link>
         </HomeBlock>
     );
 }
 
 export default Home;
+
+
+const HomeBlock = styled.div`
+  width: 100%;
+  height: 100vh;
+  background-image: url(${MainImg});
+  background-repeat: no-repeat;
+`;
+
+const StartButton = styled.img.attrs({
+    src: BtnStart
+})`
+  display: inline-block;
+  position: fixed;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  bottom: 5rem;
+  cursor: pointer;
+`;
+
+const AboutButton = styled.img.attrs({
+    src: BtnAbout
+})`
+  display: inline-block;
+  position: fixed;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  bottom: 2rem;
+  cursor: pointer;
+`;
