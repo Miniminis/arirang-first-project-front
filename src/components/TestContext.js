@@ -2,7 +2,7 @@ import React, {createContext, useContext, useReducer} from "react";
 
 const initialState = {
     questionIdx : 0,
-    answers : []
+    answers : new Map()
 }
 
 function reducer (state, action) {
@@ -10,8 +10,8 @@ function reducer (state, action) {
         case 'INCREASE':
             return { ...state, questionIdx: state.questionIdx + 1 };
         case 'ADD':
-            console.log(state);
-            return {...state, answers: state.answers.concat(action.answer)}
+            console.log('key : '+ action.answer.key + ' : ' + 'value : ' + action.answer.value);
+            return {...state, answers: state.answers.set(action.answer.key, action.answer.value)}
         default :
             throw new Error(`Unhandled action type! ${action.type}`);
     }

@@ -9,7 +9,7 @@ import {Redirect} from "react-router-dom";
 
 
 async function getQuestions() {
-    console.log('api call');
+    console.log('api getQuestions called');
 
     const response = await axios.get(
         'http://localhost:8080/v1/questions'
@@ -17,9 +17,27 @@ async function getQuestions() {
     return response.data;
 }
 
+async function postAnswers(data) {
+    console.log('api postAnswers called  ' + data);
+
+    const response = await axios.post(
+        'http://localhost:8080/v1/result',
+        {
+            'test_id' : 1,
+            'tester_name' : null,
+            'answer_map' : data
+        }
+    );
+
+    console.log('1 ' + response);
+    console.log('2 ' + response.data);
+
+    return response.data;
+}
+
 
 function QuestionList() {
-    const [state, refetch] = useAsync(getQuestions);
+    const [state] = useAsync(getQuestions);
     const { loading, data: questionInfos, error } = state;
 
     const testState = useTestStateContext();
@@ -33,7 +51,13 @@ function QuestionList() {
     const questions = questionInfos.data.questions;
 
     if (questionIdx === questions.length) {
-        return <Redirect to='/result'/>
+        console.log('3-1 ' + answers);
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+        const [state] = useAsync(() => postAnswers(answers));
+
+        console.log('3-2 ' + state);
+
+        // return <Redirect to='/result'/>
     }
 
     return (

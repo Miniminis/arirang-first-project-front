@@ -36,7 +36,7 @@ function Question({ questionId, questionType, answers }) {
     const dispatch = useTestDispatchContext();
 
     const onClick = (e) => {
-        dispatch({ type: 'ADD', answer: e.target.value })
+        dispatch({ type: 'ADD', answer: { key : questionId, value: e.target.value } })
         dispatch({ type: 'INCREASE' });
     }
 
