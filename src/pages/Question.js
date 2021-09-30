@@ -32,7 +32,7 @@ function Question({ questionId, questionType, answers }) {
     const questionImgs = getQuestionImgs();
 
     const testState = useTestStateContext();
-    const { questionIdx, testAnswers } = testState;
+    const { questionIdx, answers:testAnswers } = testState;
     const dispatch = useTestDispatchContext();
 
     const onClick = (e) => {

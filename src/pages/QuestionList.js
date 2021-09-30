@@ -4,7 +4,7 @@ import useAsync from "../components/useAsync";
 import styled from "styled-components";
 import BgQuestion from '../assets/images/bg_question.png';
 import Question from "./Question";
-import { useTestDispatchContext, useTestStateContext } from "../components/TestContext";
+import {useTestDispatchContext, useTestStateContext} from "../components/TestContext";
 import {Redirect} from "react-router-dom";
 
 
@@ -14,6 +14,7 @@ async function getQuestions() {
     const response = await axios.get(
         'http://localhost:8080/v1/questions'
     );
+
     return response.data;
 }
 
@@ -29,19 +30,17 @@ async function postAnswers(data) {
         }
     );
 
-    console.log('1 ' + response);
-    console.log('2 ' + response.data);
-
     return response.data;
 }
 
 
 function QuestionList() {
-    const [state] = useAsync(getQuestions);
+    const [state] = useAsync(getQuestions, [], false);
     const { loading, data: questionInfos, error } = state;
 
     const testState = useTestStateContext();
     const { questionIdx, answers } = testState;
+    const dispatch = useTestDispatchContext();
 
     if (loading) return <div>loading...</div>;
     if (error) return <div>error!</div>;
@@ -51,13 +50,22 @@ function QuestionList() {
     const questions = questionInfos.data.questions;
 
     if (questionIdx === questions.length) {
-        console.log('3-1 ' + answers);
-        // eslint-disable-next-line react-hooks/rules-of-hooks
-        const [state] = useAsync(() => postAnswers(answers));
+        console.log('3-1 ' + answers.size);
 
-        console.log('3-2 ' + state);
-
-        // return <Redirect to='/result'/>
+        axios.post(
+            'http://localhost:8080/v1/result',
+            {
+                'test_id' : 1,
+                'tester_name' : null,
+                'answer_map' : Object.fromEntries(answers)
+            })
+            .then(function (response) {
+                console.log('res');
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        return <Redirect to='/result'/>
     }
 
     return (
