@@ -6,6 +6,7 @@ import Result3 from '../assets/images/result_third.png';
 import useAsync from "../components/useAsync";
 import {useTestStateContext} from "../components/TestContext";
 import axios from "axios";
+import { FiDownload, IoIosRocket, BsLink45Deg, FaFacebookF, BsArrowCounterclockwise } from 'react-icons/all';
 
 
 async function getTestResult(resultId) {
@@ -54,13 +55,15 @@ export default function Result() {
     return (
         <ResultBlock>
             <CertificateImg src={resultimg.get(certificateLevel)}/>
-            <ResultButton>인증서 이미지 저장하기</ResultButton>
-            <ResultButton>테스트 다시하기</ResultButton>
-            <a href="https://spiky-glass-379.notion.site/861ce3989a6e469d92a1b15a7e9d0d7e">
-                <ResultButton>제작자 보러가기</ResultButton>
-            </a>
-            <WhiteButton>링크 복사</WhiteButton>
-            <WhiteButton>페북 공유</WhiteButton>
+            <ResultButton><FiDownload/> 인증서 이미지 저장하기</ResultButton>
+            <ResultButton><BsArrowCounterclockwise/> 테스트 다시하기</ResultButton>
+            <ResultButton>
+                <a href="https://spiky-glass-379.notion.site/861ce3989a6e469d92a1b15a7e9d0d7e">
+                    <IoIosRocket/> 제작자 보러가기
+                </a>
+            </ResultButton>
+            <WhiteButton marginRight="0.5rem"><BsLink45Deg/> 링크 복사</WhiteButton>
+            <WhiteButton marginLeft="0.5rem"><FaFacebookF/> 페북 공유</WhiteButton>
         </ResultBlock>
     );
 };
@@ -74,7 +77,7 @@ const CertificateImg = styled.img.attrs(props => ({
     src: props.src
 }))`
   width: 80%;
-  margin-top: 22px;
+  margin-top: 3rem;
   margin-bottom: 40px;
 `;
 
@@ -109,8 +112,14 @@ const WhiteButton = styled.button`
   width: 130px;
   padding-top: 12px;
   padding-bottom: 12px;
+
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+  margin-right: ${props => props.marginRight || 0};
+  margin-left: ${props => props.marginLeft || 0};
   
   background: white;
   color: black;
   font-size: 17px;
+  
 `;

@@ -3,7 +3,6 @@ import {createGlobalStyle} from "styled-components";
 import TestTemplate from "./components/TestTemplate";
 import Home from "./pages/Home";
 import {Route, Switch} from "react-router-dom";
-import About from "./pages/About";
 import QuestionList from "./pages/QuestionList";
 import React from "react";
 import Result from "./pages/Result";
@@ -34,4 +33,10 @@ const GlobalStyle = createGlobalStyle`
     text-align: center;
     background: #f4ebe4;
   }
+  
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  
 `;

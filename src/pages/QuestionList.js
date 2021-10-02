@@ -104,9 +104,9 @@ export default React.memo(QuestionList);
 const QuestionListBlock = styled.div`
   width: 100%;
   height: 100vh;
-  //outline: none;
-  //border: none;
-  // background-image: url(${BgQuestion});
-  // background-repeat: no-repeat;
+  // outline: none;
+  // border: none;
+  //  background-image: url(${BgQuestion});
+  //  background-repeat: no-repeat;
 `;
 
