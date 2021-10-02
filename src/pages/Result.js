@@ -56,7 +56,9 @@ export default function Result() {
             <CertificateImg src={resultimg.get(certificateLevel)}/>
             <ResultButton>인증서 이미지 저장하기</ResultButton>
             <ResultButton>테스트 다시하기</ResultButton>
-            <ResultButton>제작자 보러가기</ResultButton>
+            <a href="https://spiky-glass-379.notion.site/861ce3989a6e469d92a1b15a7e9d0d7e">
+                <ResultButton>제작자 보러가기</ResultButton>
+            </a>
             <WhiteButton>링크 복사</WhiteButton>
             <WhiteButton>페북 공유</WhiteButton>
         </ResultBlock>
@@ -94,6 +96,7 @@ const ResultButton = styled.button`
   background: #f1d5a7;
   color: black;
   font-size: 17px;
+  font-weight: bold;
 `;
 
 const WhiteButton = styled.button`

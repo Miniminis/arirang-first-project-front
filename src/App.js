@@ -18,7 +18,6 @@ function App() {
               <Route path="/" exact={true} component={Home} />
               <Switch>
                   <Route path="/question" component={QuestionList}/>
-                  <Route path="/about" component={About} />
                   <Route path="/result" component={Result} /> }/>
               </Switch>
           </TestTemplate>

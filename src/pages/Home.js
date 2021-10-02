@@ -9,7 +9,7 @@ function Home() {
     return (
         <HomeBlock>
             <Link to="/question"><StartButton/></Link>
-            <Link to="/about"><AboutButton/></Link>
+            <a href="https://spiky-glass-379.notion.site/861ce3989a6e469d92a1b15a7e9d0d7e"><AboutButton/></a>
         </HomeBlock>
     );
 }
