@@ -19,7 +19,7 @@ function App() {
               <Switch>
                   <Route path="/question" component={QuestionList}/>
                   <Route path="/about" component={About} />
-                  <Route path="/result" component={Result}/>
+                  <Route path="/result" component={Result} /> }/>
               </Switch>
           </TestTemplate>
       </TestProvider>

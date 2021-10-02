@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import styled from "styled-components";
 import Question1 from "../assets/images/question_1.png";
 import Question2 from "../assets/images/question_2.png";
@@ -32,7 +32,7 @@ function Question({ questionId, questionType, answers }) {
     const questionImgs = getQuestionImgs();
 
     const testState = useTestStateContext();
-    const { questionIdx, answers:testAnswers } = testState;
+    const questionIdx = testState.questionIdx;
     const dispatch = useTestDispatchContext();
 
     const onClick = (e) => {
