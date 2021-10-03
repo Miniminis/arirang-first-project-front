@@ -12,7 +12,7 @@ async function getQuestions() {
     console.log('api getQuestions called');
 
     const response = await axios.get(
-        'http://3.38.60.95:8080/v1/questions'
+        'https://api-arirang.docking.zone/v1/questions'
     );
 
     return response.data;
@@ -23,7 +23,7 @@ async function postAnswers(data) {
     console.log('api postAnswers called  ' + data);
 
     const response = await axios.post(
-        'http://3.38.60.95:8080/v1/result',
+        'https://api-arirang.docking.zone/v1/result',
         {
             'test_id' : 1,
             'tester_name' : null,

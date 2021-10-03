@@ -13,7 +13,7 @@ async function getTestResult(resultId) {
     console.log('api getTestResult called');
 
     const response = await axios.get(
-        `http://3.38.60.95:8080/v1/result/${resultId}`
+        `https://api-arirang.docking.zone/v1/result/${resultId}`
     );
 
     return response.data;
