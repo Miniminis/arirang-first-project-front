@@ -34,7 +34,7 @@ function getResultImgs() {
 
 
 export default function Result({ ...props }) {
-    const history = useHistory();가
+    const history = useHistory();
 
     const search = props.location.search;
     const params = new URLSearchParams(search);
@@ -77,8 +77,8 @@ export default function Result({ ...props }) {
     }
 
     const onCopyLink = ()=> {
-        //링크복사
-        //https://arirang.docking.zone/result?resultId=${resultId}
+        navigator.clipboard.writeText('https://arirang.docking.zone')
+            .then(r => alert('링크가 복사되었습니다!'));
     }
 
     return (
@@ -92,7 +92,9 @@ export default function Result({ ...props }) {
                     <IoIosRocket/> 제작자 보러가기
                 </a>
             </ResultButton>
-            <WhiteButton marginRight="0.5rem"><BsLink45Deg/> 링크 복사</WhiteButton>
+            <WhiteButton
+                marginRight="0.5rem"
+                onClick={onCopyLink}><BsLink45Deg/> 링크 복사</WhiteButton>
             <WhiteButton
                 marginLeft="0.5rem"
                 onClick={onFaceBookShare}><FaFacebookF/> 페북 공유</WhiteButton>
