@@ -35,7 +35,7 @@ function Question({ questionId, questionType, answers }) {
     const questionIdx = testState.questionIdx;
     const dispatch = useTestDispatchContext();
 
-    const onClick = (e) => {
+    const onClickAnswerBtn = (e) => {
         dispatch({ type: 'ADD', answer: { key : questionId, value: e.target.value } })
         dispatch({ type: 'INCREASE' });
     }
@@ -44,10 +44,11 @@ function Question({ questionId, questionType, answers }) {
         <QuestionBlock>
             <QuestionTitle key={'t_' + questionIdx} src={questionTitles[questionIdx]}/>
             <QuestionImage key={'q_' + questionIdx} src={questionImgs[questionIdx]}/>
-            {answers.map(answer => (
+            {answers.map(
+                answer => (
                 <AnswerButton
                     key={answer.seq}
-                    onClick={onClick}
+                    onClick={onClickAnswerBtn}
                     value={answer.answer}>
                     {answer.seq}. {answer.answer}
                 </AnswerButton>
@@ -55,6 +56,7 @@ function Question({ questionId, questionType, answers }) {
         </QuestionBlock>
     );
 }
+
 
 const QuestionBlock = styled.div`
   width: 100%;

@@ -17,6 +17,12 @@ function reducer (state, action) {
             console.log('before : ' + state.resultId)
             console.log('after : ' + action.result_id)
             return {...state, resultId : action.resultId};
+        case 'INITIALIZE':
+            return {...state,
+                questionIdx: initialState.questionIdx,
+                answers: initialState.answers,
+                resultId: initialState.resultId
+            };
         default :
             throw new Error(`Unhandled action type! ${action.type}`);
     }

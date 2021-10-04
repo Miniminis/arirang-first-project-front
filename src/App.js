@@ -14,8 +14,8 @@ function App() {
       <TestProvider>
           <GlobalStyle/>
           <TestTemplate>
-              <Route path="/" exact={true} component={Home} />
               <Switch>
+                  <Route path="/" exact={true} component={Home} />
                   <Route path="/question" component={QuestionList}/>
                   <Route path="/result" component={Result} /> }/>
               </Switch>

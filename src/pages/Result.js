@@ -4,9 +4,11 @@ import Result1 from '../assets/images/result_first.png';
 import Result2 from '../assets/images/result_second.png';
 import Result3 from '../assets/images/result_third.png';
 import useAsync from "../components/useAsync";
-import {useTestStateContext} from "../components/TestContext";
+import {useTestDispatchContext, useTestStateContext} from "../components/TestContext";
 import axios from "axios";
 import { FiDownload, IoIosRocket, BsLink45Deg, FaFacebookF, BsArrowCounterclockwise } from 'react-icons/all';
+import ErrorPage from "../components/ErrorPage";
+import {Link, Redirect, useHistory} from "react-router-dom";
 
 
 async function getTestResult(resultId) {
@@ -30,11 +32,16 @@ function getResultImgs() {
     return resultImgMap;
 }
 
+
 export default function Result() {
+
+    const history = useHistory();
 
     const testState = useTestStateContext();
     const resultId = testState.resultId;
     console.log('in component result : ' + resultId);
+    const dispatch = useTestDispatchContext();
+
 
     const [state] = useAsync(() => getTestResult(resultId), [resultId]);
     const { loading, data: certificate, error } = state;
@@ -42,7 +49,7 @@ export default function Result() {
     console.log('certificate : ' + certificate);
 
     if (loading) return <div>loading...</div>;
-    if (error) return <div>error!</div>;
+    if (error) return <ErrorPage/>;
     if (certificate === null) return <div>no certificate is available</div>;
     if (certificate.status_code !== 200) return <div>status_code is not 200</div>
     if (certificate.data == null ) return <div>no certificate is available yet</div>;
@@ -52,11 +59,17 @@ export default function Result() {
 
     const resultimg = getResultImgs();
 
+    const onRetry = ()=> {
+        dispatch({ type: 'INITIALIZE' });
+        history.push("/");
+    }
+
     return (
         <ResultBlock>
             <CertificateImg src={resultimg.get(certificateLevel)}/>
             <ResultButton><FiDownload/> 인증서 이미지 저장하기</ResultButton>
-            <ResultButton><BsArrowCounterclockwise/> 테스트 다시하기</ResultButton>
+            <ResultButton
+                onClick={onRetry}><BsArrowCounterclockwise/> 테스트 다시하기</ResultButton>
             <ResultButton>
                 <a href="https://spiky-glass-379.notion.site/861ce3989a6e469d92a1b15a7e9d0d7e">
                     <IoIosRocket/> 제작자 보러가기
