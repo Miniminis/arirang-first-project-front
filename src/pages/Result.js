@@ -34,7 +34,7 @@ function getResultImgs() {
 
 
 export default function Result({ ...props }) {
-    const history = useHistory();
+    const history = useHistory();가
 
     const search = props.location.search;
     const params = new URLSearchParams(search);
@@ -74,6 +74,11 @@ export default function Result({ ...props }) {
 
     const onFaceBookShare = () => {
         window.open(`https://www.facebook.com/sharer/sharer.php?u=https://arirang.docking.zone/result?resultId=${resultId}`);
+    }
+
+    const onCopyLink = ()=> {
+        //링크복사
+        //https://arirang.docking.zone/result?resultId=${resultId}
     }
 
     return (
