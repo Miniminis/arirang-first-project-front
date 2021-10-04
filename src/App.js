@@ -17,7 +17,7 @@ function App() {
               <Switch>
                   <Route path="/" exact={true} component={Home} />
                   <Route path="/question" component={QuestionList}/>
-                  <Route path="/result" component={Result} /> }/>
+                  <Route path="/result" component={(props) => <Result {...props} /> }/>
               </Switch>
           </TestTemplate>
       </TestProvider>

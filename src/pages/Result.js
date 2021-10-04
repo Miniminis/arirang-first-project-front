@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import styled from "styled-components";
 import Result1 from '../assets/images/result_first.png';
 import Result2 from '../assets/images/result_second.png';
@@ -6,9 +6,9 @@ import Result3 from '../assets/images/result_third.png';
 import useAsync from "../components/useAsync";
 import {useTestDispatchContext, useTestStateContext} from "../components/TestContext";
 import axios from "axios";
-import { FiDownload, IoIosRocket, BsLink45Deg, FaFacebookF, BsArrowCounterclockwise } from 'react-icons/all';
+import {BsArrowCounterclockwise, BsLink45Deg, FaFacebookF, FiDownload, IoIosRocket} from 'react-icons/all';
 import ErrorPage from "../components/ErrorPage";
-import {Link, Redirect, useHistory} from "react-router-dom";
+import {useHistory} from "react-router-dom";
 
 
 async function getTestResult(resultId) {
@@ -33,16 +33,24 @@ function getResultImgs() {
 }
 
 
-export default function Result() {
-
+export default function Result({ ...props }) {
     const history = useHistory();
 
-    const testState = useTestStateContext();
-    const resultId = testState.resultId;
-    console.log('in component result : ' + resultId);
+    const search = props.location.search;
+    const params = new URLSearchParams(search);
+
     const dispatch = useTestDispatchContext();
 
+    const testState = useTestStateContext();
+    let resultId = testState.resultId;
+    console.log(`initial resultId ${resultId}`);
 
+    if (params !== null && params.has('resultId')) {
+        resultId = params.get('resultId');
+        console.log(`param resultId ${resultId}`);
+    }
+
+    console.log(`final component result id ${resultId}`);
     const [state] = useAsync(() => getTestResult(resultId), [resultId]);
     const { loading, data: certificate, error } = state;
 
@@ -64,6 +72,10 @@ export default function Result() {
         history.push("/");
     }
 
+    const onFaceBookShare = () => {
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=https://arirang.docking.zone/result?resultId=${resultId}`);
+    }
+
     return (
         <ResultBlock>
             <CertificateImg src={resultimg.get(certificateLevel)}/>
@@ -76,7 +88,9 @@ export default function Result() {
                 </a>
             </ResultButton>
             <WhiteButton marginRight="0.5rem"><BsLink45Deg/> 링크 복사</WhiteButton>
-            <WhiteButton marginLeft="0.5rem"><FaFacebookF/> 페북 공유</WhiteButton>
+            <WhiteButton
+                marginLeft="0.5rem"
+                onClick={onFaceBookShare}><FaFacebookF/> 페북 공유</WhiteButton>
         </ResultBlock>
     );
 };
