@@ -67,7 +67,8 @@ export default function Result({ ...props }) {
 
     const resultimg = getResultImgs();
 
-    const onRetry = ()=> {
+
+    const onRetry = () => {
         dispatch({ type: 'INITIALIZE' });
         history.push("/");
     }
@@ -76,7 +77,7 @@ export default function Result({ ...props }) {
         window.open(`https://www.facebook.com/sharer/sharer.php?u=https://arirang.docking.zone/result?resultId=${resultId}`);
     }
 
-    const onCopyLink = ()=> {
+    const onCopyLink = () => {
         navigator.clipboard.writeText('https://arirang.docking.zone')
             .then(r => alert('링크가 복사되었습니다!'));
     }
@@ -84,7 +85,11 @@ export default function Result({ ...props }) {
     return (
         <ResultBlock>
             <CertificateImg src={resultimg.get(certificateLevel)}/>
-            <ResultButton><FiDownload/> 인증서 이미지 저장하기</ResultButton>
+            <ResultButton>
+                <a href={resultimg.get(certificateLevel)} download="certificate.png">
+                    <FiDownload/> 인증서 이미지 저장하기
+                </a>
+            </ResultButton>
             <ResultButton
                 onClick={onRetry}><BsArrowCounterclockwise/> 테스트 다시하기</ResultButton>
             <ResultButton>
