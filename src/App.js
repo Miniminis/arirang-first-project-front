@@ -10,7 +10,13 @@ import {TestProvider} from "./components/TestContext";
 
 
 function App() {
-  return (
+
+    window.history.pushState(null, null, window.location.href);
+    window.onpopstate = function(event) {
+        window.history.go(1);
+    };
+
+    return (
       <TestProvider>
           <GlobalStyle/>
           <TestTemplate>

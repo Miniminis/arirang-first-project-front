@@ -10,8 +10,6 @@ import ErrorPage from "../components/ErrorPage";
 
 
 async function getQuestions() {
-    console.log('api getQuestions called');
-
     const response = await axios.get(
         'https://api-arirang.docking.zone/v1/questions'
     );
@@ -21,8 +19,6 @@ async function getQuestions() {
 
 
 async function postAnswers(data) {
-    console.log('api postAnswers called  ' + data);
-
     const response = await axios.post(
         'https://api-arirang.docking.zone/v1/result',
         {
@@ -56,10 +52,9 @@ function QuestionList() {
     const questions = questionInfos.data.questions;
 
     if (questionIdx === questions.length) {
+
         postAnswers(Object.fromEntries(answers))
             .then(r => {
-                console.log('post_status' + r.data.status_code);
-                console.log('post_result' + r.data.result_id);
                 const result_id = r.data.result_id;
                 dispatch({ type: 'RESULT_ID', resultId : result_id });
             });

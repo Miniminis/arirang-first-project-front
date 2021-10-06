@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import styled from "styled-components";
 import Result1 from '../assets/images/result_first.png';
 import Result2 from '../assets/images/result_second.png';
@@ -12,8 +12,6 @@ import {useHistory} from "react-router-dom";
 
 
 async function getTestResult(resultId) {
-    console.log('api getTestResult called');
-
     const response = await axios.get(
         `https://api-arirang.docking.zone/v1/result/${resultId}`
     );
@@ -43,18 +41,13 @@ export default function Result({ ...props }) {
 
     const testState = useTestStateContext();
     let resultId = testState.resultId;
-    console.log(`initial resultId ${resultId}`);
 
     if (params !== null && params.has('resultId')) {
         resultId = params.get('resultId');
-        console.log(`param resultId ${resultId}`);
     }
 
-    console.log(`final component result id ${resultId}`);
     const [state] = useAsync(() => getTestResult(resultId), [resultId]);
     const { loading, data: certificate, error } = state;
-
-    console.log('certificate : ' + certificate);
 
     if (loading) return <div>loading...</div>;
     if (error) return <ErrorPage/>;
@@ -62,7 +55,6 @@ export default function Result({ ...props }) {
     if (certificate.status_code !== 200) return <div>status_code is not 200</div>
     if (certificate.data == null ) return <div>no certificate is available yet</div>;
 
-    console.log(certificate.data);
     const certificateLevel = certificate.data.level;
 
     const resultimg = getResultImgs();

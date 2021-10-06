@@ -11,11 +11,8 @@ function reducer (state, action) {
         case 'INCREASE':
             return { ...state, questionIdx: state.questionIdx + 1 };
         case 'ADD':
-            console.log('key : '+ action.answer.key + ' : value : ' + action.answer.value)
             return {...state, answers: state.answers.set(action.answer.key, action.answer.value)};
         case 'RESULT_ID':
-            console.log('before : ' + state.resultId)
-            console.log('after : ' + action.result_id)
             return {...state, resultId : action.resultId};
         case 'INITIALIZE':
             return {...state,
