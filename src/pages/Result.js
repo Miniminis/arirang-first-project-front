@@ -50,15 +50,29 @@ export default function Result({ ...props }) {
     const { loading, data: certificate, error } = state;
 
     if (loading) return <div>loading...</div>;
-    if (error) return <ErrorPage/>;
-    if (certificate === null) return <div>no certificate is available</div>;
-    if (certificate.status_code !== 200) return <div>status_code is not 200</div>
-    if (certificate.data == null ) return <div>no certificate is available yet</div>;
+    if (error) {
+        console.log(error);
+        return <ErrorPage/>;
+    }
+
+    if (certificate == null || certificate.data == null ) {
+        console.log('certificate data is not available');
+        return <ErrorPage/>;
+    }
+
+    if (certificate.status_code !== 200) {
+        console.log('status_code is not 200');
+        return <ErrorPage/>;
+    }
 
     const certificateLevel = certificate.data.level;
+    // if (certificateLevel === 3) {
+    //     dispatch({ type: 'RESULT_FAILED' });
+    // }
+
+    //${props => props.isBtnShow? '' : 'none'}
 
     const resultimg = getResultImgs();
-
 
     const onRetry = () => {
         dispatch({ type: 'INITIALIZE' });
@@ -90,9 +104,11 @@ export default function Result({ ...props }) {
                 </a>
             </ResultButton>
             <WhiteButton
+                isBtnShow={testState.isBtnShow}
                 marginRight="0.5rem"
                 onClick={onCopyLink}><BsLink45Deg/> 링크 복사</WhiteButton>
             <WhiteButton
+                isBtnShow={testState.isBtnShow}
                 marginLeft="0.5rem"
                 onClick={onFaceBookShare}><FaFacebookF/> 페북 공유</WhiteButton>
         </ResultBlock>
@@ -113,12 +129,14 @@ const CertificateImg = styled.img.attrs(props => ({
 `;
 
 const ResultButton = styled.button`
+  
+  display: block;
+  
   border: none;
   outline: none;
   border-radius: 32px;
   cursor: pointer;
 
-  display: block;
   width: 280px;
   padding-top: 12px;
   padding-bottom: 12px;

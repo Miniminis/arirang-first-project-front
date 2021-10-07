@@ -3,7 +3,8 @@ import React, {createContext, useContext, useReducer} from "react";
 const initialState = {
     questionIdx : 0,
     answers : new Map(),
-    resultId: 0
+    resultId: 0,
+    isBtnShow: true
 }
 
 function reducer (state, action) {
@@ -18,8 +19,11 @@ function reducer (state, action) {
             return {...state,
                 questionIdx: initialState.questionIdx,
                 answers: initialState.answers,
-                resultId: initialState.resultId
+                resultId: initialState.resultId,
+                isBtnShow: initialState.isBtnShow
             };
+        case 'RESULT_FAILED':
+            return {...state, isBtnShow: false};
         default :
             throw new Error(`Unhandled action type! ${action.type}`);
     }
