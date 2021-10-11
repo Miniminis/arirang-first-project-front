@@ -70,7 +70,6 @@ export default function Result({ ...props }) {
 
     const certificateLevel = certificate.data.level;
     if (certificateLevel === 3) {
-        console.log(certificateLevel);
         isBtnShow = false;
     }
 
