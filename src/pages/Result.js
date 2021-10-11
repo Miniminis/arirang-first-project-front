@@ -42,6 +42,8 @@ export default function Result({ ...props }) {
     const testState = useTestStateContext();
     let resultId = testState.resultId;
 
+    let isBtnShow = true;
+
     if (params !== null && params.has('resultId')) {
         resultId = params.get('resultId');
     }
@@ -65,12 +67,12 @@ export default function Result({ ...props }) {
         return <ErrorPage/>;
     }
 
-    const certificateLevel = certificate.data.level;
-    // if (certificateLevel === 3) {
-    //     dispatch({ type: 'RESULT_FAILED' });
-    // }
 
-    //${props => props.isBtnShow? '' : 'none'}
+    const certificateLevel = certificate.data.level;
+    if (certificateLevel === 3) {
+        console.log(certificateLevel);
+        isBtnShow = false;
+    }
 
     const resultimg = getResultImgs();
 
@@ -91,26 +93,35 @@ export default function Result({ ...props }) {
     return (
         <ResultBlock>
             <CertificateImg src={resultimg.get(certificateLevel)}/>
-            <ResultButton>
+            <ResultButton
+                isBtnShow={isBtnShow}>
                 <a href={resultimg.get(certificateLevel)} download="certificate.png">
                     <FiDownload/> 인증서 이미지 저장하기
                 </a>
             </ResultButton>
             <ResultButton
-                onClick={onRetry}><BsArrowCounterclockwise/> 테스트 다시하기</ResultButton>
-            <ResultButton>
+                isBtnShow={true}
+                onClick={onRetry}>
+                <BsArrowCounterclockwise/> 테스트 다시하기
+            </ResultButton>
+            <ResultButton
+                isBtnShow={true}>
                 <a href="https://spiky-glass-379.notion.site/861ce3989a6e469d92a1b15a7e9d0d7e">
                     <IoIosRocket/> 제작자 보러가기
                 </a>
             </ResultButton>
             <WhiteButton
-                isBtnShow={testState.isBtnShow}
+                isBtnShow={isBtnShow}
                 marginRight="0.5rem"
-                onClick={onCopyLink}><BsLink45Deg/> 링크 복사</WhiteButton>
+                onClick={onCopyLink}>
+                <BsLink45Deg/> 링크 복사
+            </WhiteButton>
             <WhiteButton
-                isBtnShow={testState.isBtnShow}
+                isBtnShow={isBtnShow}
                 marginLeft="0.5rem"
-                onClick={onFaceBookShare}><FaFacebookF/> 페북 공유</WhiteButton>
+                onClick={onFaceBookShare}>
+                <FaFacebookF/> 페북 공유
+            </WhiteButton>
         </ResultBlock>
     );
 };
@@ -129,8 +140,7 @@ const CertificateImg = styled.img.attrs(props => ({
 `;
 
 const ResultButton = styled.button`
-  
-  display: block;
+  display: ${props => props.isBtnShow ? 'block' : 'none'};
   
   border: none;
   outline: none;
@@ -152,12 +162,14 @@ const ResultButton = styled.button`
 `;
 
 const WhiteButton = styled.button`
+  
+  display: ${props => props.isBtnShow? 'inline-block' : 'none'};
+  
   border: none;
   outline: none;
   border-radius: 32px;
   cursor: pointer;
 
-  display: inline-block;
   width: 130px;
   padding-top: 12px;
   padding-bottom: 12px;
