@@ -56,5 +56,9 @@
 - [![author-flash](https://img.shields.io/badge/author-flash-FF6600.svg)](https://blog.mhson.world/)
 - [![author-marketsender](https://img.shields.io/badge/author-marketsensor-006600.svg)](https://www.instagram.com/market_senser/)
 
-## About Docking Project
+## ETC
+### About Docking Project
 👉 [About Docking Project](https://spiky-glass-379.notion.site/861ce3989a6e469d92a1b15a7e9d0d7e)
+
+### Related Repository
+👉 [서울 빵 맛집 잘알 테스트 Backend Repository](https://github.com/Miniminis/arirang-first-project-back)
