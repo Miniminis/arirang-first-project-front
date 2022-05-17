@@ -43,9 +43,9 @@
 - 릴리즈
 
 ## Status
-![active-status](https://img.shields.io/badge/status-active-006600.svg)
+<!-- ![active-status](https://img.shields.io/badge/status-active-006600.svg) -->
 
-[comment]: <> (![in-active-status]&#40;https://img.shields.io/badge/status-inactive-FF0000.svg&#41;)
+![in-active-status](https://img.shields.io/badge/status-inactive-FF0000.svg)
 
 
 ## Thanks to
