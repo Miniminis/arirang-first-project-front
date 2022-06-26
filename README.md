@@ -34,7 +34,7 @@
 - 개발설계
 ### 2021.09 
 - 디자인 UX/UI 
-- [도킹프로젝트 소개글 작성](https://spiky-glass-379.notion.site/861ce3989a6e469d92a1b15a7e9d0d7e)
+- [도킹프로젝트 소개글 작성](https://log4flash.notion.site/861ce3989a6e469d92a1b15a7e9d0d7e)
 - 프론트 기술 공부 : `javascript`, `reactJS`, `styled-components`, `aws-amplify`
 - 프론트 & 백엔드 개발 진행
 ### 2021.10
