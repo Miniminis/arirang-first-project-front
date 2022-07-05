@@ -4,6 +4,10 @@
 ## Live Link
 👉 [서울 빵 맛집 잘알 테스트 하러가기](https://arirang.docking.zone/)
 
+## Status
+<!-- ![active-status](https://img.shields.io/badge/status-active-006600.svg) -->
+![in-active-status](https://img.shields.io/badge/status-inactive-FF0000.svg)
+
 ## About the Project
 자칭 빵 맛집 전문가들은 뚜렷한 인증제도가 없어서 쉽사리 무시되곤 한다. 빵을 사랑하고 세상의 모든 빵 맛집을 꿰뚫고 있는 그들에게 빵 전문가 자격증을 발급해줌으로서 자존감을 회복할 수 있는 계기를 마련하고자 했다.
 
@@ -42,12 +46,6 @@
 - QA
 - 릴리즈
 
-## Status
-<!-- ![active-status](https://img.shields.io/badge/status-active-006600.svg) -->
-
-![in-active-status](https://img.shields.io/badge/status-inactive-FF0000.svg)
-
-
 ## Thanks to
 - 자바스크립트, 리엑트 문외한이 한 달만에 테스트 사이트를 제작할 수 있게 도와주신 [벨로퍼트](https://react.vlpt.us) 님, 감사합니다 🙏
 - 게으른 개발자를 열심히 케어해주신 공동작업자님, 감사합니다 🙏
@@ -58,7 +56,7 @@
 
 ## ETC
 ### About Docking Project
-👉 [About Docking Project](https://spiky-glass-379.notion.site/861ce3989a6e469d92a1b15a7e9d0d7e)
+👉 [About Docking Project](https://log4flash.notion.site/861ce3989a6e469d92a1b15a7e9d0d7e)
 
 ### Related Repository
 👉 [서울 빵 맛집 잘알 테스트 Backend Repository](https://github.com/Miniminis/arirang-first-project-back)
