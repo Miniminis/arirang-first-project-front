@@ -2,7 +2,7 @@
 > 도킹프로젝트 첫번째, 아리랑 1호 - 빵전문가를 판별해주는 심리테스트 서비스
 
 ## Live Link
-👉 (서비스종료)서울 빵 맛집 잘알 테스트 하러가기
+👉 (서비스종료) 서울 빵 맛집 잘알 테스트 하러가기
 
 ## Status
 <!-- ![active-status](https://img.shields.io/badge/status-active-006600.svg) -->
@@ -28,7 +28,7 @@
 
 
 ## Journey
-> 작업자 두 명 모두 직장인인 관계로 약 30일 간 틈날때마다 조금씩 작업을 진행
+> 작업자 두 명 모두 직장인인 관계로 8월부터 10월까지 틈날때마다 조금씩 작업을 진행
 
 ### 2021.08 
 - 아이디어 구상
@@ -46,6 +46,22 @@
 - QA
 - 릴리즈
 
+## Result 
+
+![image](https://user-images.githubusercontent.com/44446425/218244922-12ba92e1-7f7e-43e5-95aa-d8eed7861c92.png)
+
+### 마케팅
+- 테스트 내에 등장하는 빵집 40여곳에 인스타그램 DM 을 보내 참여 유도 
+- 직장인이 가장 힘들어하는 시간인 점심시간 직후를 노려 카톡 내 친한 지인들에게 링크 전파! 유흥거리를 제공함
+- 객관적인 평을 듣고 싶어서 테스트 전이나 후에 본인이 제작한 것임을 밝히지 않음
+
+### 최종 결과 
+- 총 방문자수 : 2,200명
+- 총 참여건수 : 2,069건
+- DM 을 보냈던 빵집에서는 빵을 직접 보내주시겠다고 한 곳도 있었고, 80% 정도의 빵집에서는 감사하다는 피드백을 받을 수 있었다.
+- 참여했던 지인들 중에서는 너무 어렵다는 평이 많았으며, 빵 전문가인 빵지슐레좌 인증서를 받기 위해서 여러번 시도한 사람들도 있었다.
+
+
 ## Thanks to
 - 자바스크립트, 리엑트 문외한이 한 달만에 테스트 사이트를 제작할 수 있게 도와주신 [벨로퍼트](https://react.vlpt.us) 님, 감사합니다 🙏
 - 게으른 개발자를 열심히 케어해주신 공동작업자님, 감사합니다 🙏
@@ -54,9 +70,5 @@
 - [![author-flash](https://img.shields.io/badge/author-flash-FF6600.svg)](https://wiki.mhson.world/)
 - [![author-marketsender](https://img.shields.io/badge/author-marketsensor-006600.svg)](https://litt.ly/marketsenser)
 
-## ETC
-### About Docking Project
-👉 [About Docking Project](https://log4flash.notion.site/861ce3989a6e469d92a1b15a7e9d0d7e)
-
-### Related Repository
+## Related Repository
 👉 (비공개) 서울 빵 맛집 잘알 테스트 Backend Repository
