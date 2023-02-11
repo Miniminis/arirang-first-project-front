@@ -1,8 +1,8 @@
-## [서울 빵 맛집 잘알 테스트](https://arirang.docking.zone/)
+## 서울 빵 맛집 잘알 테스트
 > 도킹프로젝트 첫번째, 아리랑 1호 - 빵전문가를 판별해주는 심리테스트 서비스
 
 ## Live Link
-👉 [서울 빵 맛집 잘알 테스트 하러가기](https://arirang.docking.zone/)
+👉 (서비스종료)서울 빵 맛집 잘알 테스트 하러가기
 
 ## Status
 <!-- ![active-status](https://img.shields.io/badge/status-active-006600.svg) -->
@@ -38,7 +38,7 @@
 - 개발설계
 ### 2021.09 
 - 디자인 UX/UI 
-- [도킹프로젝트 소개글 작성](https://log4flash.notion.site/861ce3989a6e469d92a1b15a7e9d0d7e)
+- 도킹프로젝트 소개글 작성
 - 프론트 기술 공부 : `javascript`, `reactJS`, `styled-components`, `aws-amplify`
 - 프론트 & 백엔드 개발 진행
 ### 2021.10
@@ -51,12 +51,12 @@
 - 게으른 개발자를 열심히 케어해주신 공동작업자님, 감사합니다 🙏
 
 ## Authors
-- [![author-flash](https://img.shields.io/badge/author-flash-FF6600.svg)](https://blog.mhson.world/)
-- [![author-marketsender](https://img.shields.io/badge/author-marketsensor-006600.svg)](https://www.instagram.com/market_senser/)
+- [![author-flash](https://img.shields.io/badge/author-flash-FF6600.svg)](https://wiki.mhson.world/)
+- [![author-marketsender](https://img.shields.io/badge/author-marketsensor-006600.svg)](https://litt.ly/marketsenser)
 
 ## ETC
 ### About Docking Project
 👉 [About Docking Project](https://log4flash.notion.site/861ce3989a6e469d92a1b15a7e9d0d7e)
 
 ### Related Repository
-👉 [서울 빵 맛집 잘알 테스트 Backend Repository](https://github.com/Miniminis/arirang-first-project-back)
+👉 (비공개) 서울 빵 맛집 잘알 테스트 Backend Repository
